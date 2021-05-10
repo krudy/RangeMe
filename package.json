@@ -10,6 +10,8 @@
     "eslint": "eslint . --ext .jsx"
   },
   "dependencies": {
+    "awesome-debounce-promise": "^2.1.0",
+    "cors": "^2.8.5",
     "next": "^10.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
