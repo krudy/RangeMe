@@ -9,8 +9,8 @@ const PhotoFeed = ({ list }) => (
     <div className="container">
       <div className="wrapper">
         <ul className="list">
-          {list.map((item) => (
-            <li className="item" key={item.title + item.author_id}>
+          {list.map((item, index) => (
+            <li className="item" key={item.title + item.author_id + index}>
               <Card item={item} />
             </li>
           ))}

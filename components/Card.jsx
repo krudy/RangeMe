@@ -26,7 +26,7 @@ const Card = ({ item }) => (
           <span className="infoTitle">Tags:</span>{' '}
           {item.tags &&
             item.tags.split(' ').map((tag) => (
-              <div className="tagWrapper" key={tag}>
+              <div className="tagWrapper" key={tag + item.author}>
                 <Tag tag={tag} />
               </div>
             ))}
