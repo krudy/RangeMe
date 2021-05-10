@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -14,6 +15,11 @@ const MyApp = ({ Component, pageProps }) => {
       </style>
     </>
   );
+};
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType,
+  pageProps: PropTypes.object,
 };
 
 export default MyApp;

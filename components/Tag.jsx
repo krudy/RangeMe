@@ -1,4 +1,5 @@
 import React from 'react';
+import PropType from 'prop-type';
 
 import { colors } from '../utils/theme';
 
@@ -16,5 +17,9 @@ const Tag = ({ tag }) => (
     `}</style>
   </>
 );
+
+Tag.propTypes = {
+  tag: PropType.string,
+};
 
 export default Tag;
