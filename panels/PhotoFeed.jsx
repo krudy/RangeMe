@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Card from '../components/Card';
 import { colors, breakPoints } from '../utils/theme';
@@ -62,5 +63,21 @@ const PhotoFeed = ({ list }) => (
     `}</style>
   </>
 );
+
+PhotoFeed.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      link: PropTypes.string,
+      media: { m: PropTypes.string },
+      date_taken: PropTypes.string,
+      description: PropTypes.string,
+      published: PropTypes.string,
+      author: PropTypes.string,
+      author_id: PropTypes.string,
+      tags: PropTypes.string,
+    }),
+  ),
+};
 
 export default PhotoFeed;

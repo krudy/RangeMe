@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Hero from '../panels/Hero';
 import PhotoFeed from '../panels/PhotoFeed';
@@ -38,6 +39,28 @@ Homepage.getInitialProps = async () => {
   );
   const json = await res.json();
   return { response: json };
+};
+
+Homepage.propTypes = {
+  response: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    modified: PropTypes.string,
+    link: PropTypes.string,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        link: PropTypes.string,
+        media: { m: PropTypes.string },
+        date_taken: PropTypes.string,
+        description: PropTypes.string,
+        published: PropTypes.string,
+        author: PropTypes.string,
+        author_id: PropTypes.string,
+        tags: PropTypes.string,
+      }),
+    ),
+  }),
 };
 
 export default Homepage;

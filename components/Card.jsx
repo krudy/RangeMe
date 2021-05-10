@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-type';
 
 import Tag from '../components/Tag';
 import { colors, transitions } from '../utils/theme';
 
 const Card = ({ item }) => (
   <>
-    <a className="card" href={item.link} target="_blank">
+    <a className="card" href={item.link} target="_blank" rel="noreferrer">
       <div className="imageWrapper">
         <div className="image" />
       </div>
@@ -25,7 +26,7 @@ const Card = ({ item }) => (
           <span className="infoTitle">Tags:</span>{' '}
           {item.tags &&
             item.tags.split(' ').map((tag) => (
-              <div className="tagWrapper">
+              <div className="tagWrapper" key={tag}>
                 <Tag tag={tag} />
               </div>
             ))}
@@ -82,5 +83,19 @@ const Card = ({ item }) => (
     `}</style>
   </>
 );
+
+Card.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    link: PropTypes.string,
+    media: { m: PropTypes.string },
+    date_taken: PropTypes.string,
+    description: PropTypes.string,
+    published: PropTypes.string,
+    author: PropTypes.string,
+    author_id: PropTypes.string,
+    tags: PropTypes.string,
+  }),
+};
 
 export default Card;
