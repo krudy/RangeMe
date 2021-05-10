@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Card from '../components/Card';
-import { colors } from '../utils/theme';
+import { colors, breakPoints } from '../utils/theme';
 
 const PhotoFeed = ({ list }) => (
   <>
@@ -29,15 +29,35 @@ const PhotoFeed = ({ list }) => (
         padding: 0;
         list-style-type: none;
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
       }
       .item {
-        flex-basis: calc(33.33% - 40px);
-        max-width: calc(33.33% - 40px);
+        flex-basis: calc(100% - 40px);
+        max-width: calc(100% - 40px);
         margin: 10px;
         background-color: ${colors.white};
         border: 1px solid ${colors.black};
         border-radius: 4px;
+      }
+
+      @media (min-width: ${breakPoints.small}px) {
+        .list {
+          justify-content: center;
+        }
+        .item {
+          flex-basis: calc(50% - 40px);
+          max-width: calc(50% - 40px);
+        }
+      }
+      @media (min-width: ${breakPoints.medium}px) {
+        .list {
+          justify-content: flex-start;
+        }
+        .item {
+          flex-basis: calc(33.33% - 40px);
+          max-width: calc(33.33% - 40px);
+        }
       }
     `}</style>
   </>

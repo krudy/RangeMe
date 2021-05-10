@@ -51,3 +51,10 @@ export const transitions = {
   default: '0.15s ease',
   hover: '0.3s ease',
 };
+
+export const breakPoints = {
+  small: 480,
+  medium: 780,
+  large: 1024,
+  extraLarge: 1280,
+};
