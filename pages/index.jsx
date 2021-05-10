@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Hero from '../panels/Hero';
 import PhotoFeed from '../panels/PhotoFeed';
+import Search from '../panels/Search';
 import { colors } from '../utils/theme';
 
-const Homepage = ({ response }) => {
+const Homepage = ({ rsp }) => {
+  const [response, setResponse] = useState(rsp);
   if (!response) return <div>nothing</div>;
   return (
     <>
@@ -17,6 +19,7 @@ const Homepage = ({ response }) => {
           link={response.link}
         />
         <div className="divider" />
+        <Search setter={setResponse} />
         <PhotoFeed list={response.items} />
       </div>
       <style jsx>{`
@@ -38,11 +41,11 @@ Homepage.getInitialProps = async () => {
     'https://www.flickr.com/services/feeds/photos_public.gne?lang=en-us&format=json&nojsoncallback=true',
   );
   const json = await res.json();
-  return { response: json };
+  return { rsp: json };
 };
 
 Homepage.propTypes = {
-  response: PropTypes.shape({
+  rsp: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
     modified: PropTypes.string,
